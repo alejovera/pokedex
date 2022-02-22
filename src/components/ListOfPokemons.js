@@ -9,14 +9,14 @@ function ListOfPokemons() {
         fetchPokes();
     }, []);
 
-    const [pokeResults, setPokeResults] = useState();
+    // const [pokeResults, setPokeResults] = useState();
     const [results, setResults] = useState();
     const [loading, setLoading] = useState(true);
 
     const fetchPokes = async () => {
         try {
             const data = await getAllPokes();
-            setPokeResults(data);
+            // setPokeResults(data);
             setResults(data.results);
             setLoading(false);
             return data;
