@@ -29,10 +29,15 @@ function Pokemon({ item, url }) {
     console.log(pokeState);
     return (
         <div className="pokemon__container">
-            <h2>{pokeState.name}</h2>
-            <p>{pokeState.image}</p>
-            <p>{pokeState.number}</p>
-            {/* <p>{pokeState.type}</p> */}
+            <div className="image__container">
+                <img
+                    className="pokemon__image"
+                    src={pokeState.image}
+                    alt="imagen pokemon"
+                />
+            </div>
+            <h3>{pokeState.name}</h3>
+            <p className="pokemon__number"># {pokeState.number}</p>
         </div>
     );
 }
