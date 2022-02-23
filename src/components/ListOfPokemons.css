@@ -1,6 +1,35 @@
 .container {
     display: flex;
     flex-wrap: wrap;
+    /* flex-direction: column; */
     width: 100%;
     height: 100vh;
+}
+.dropdown__container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+.dropdown__container::-webkit-scrollbar {
+    display: none !important;
+}
+.dropdown__label::-webkit-scrollbar {
+    display: none !important;
+}
+.dropdown__label {
+    overflow: hidden;
+    overflow: hidden;
+    color: #ebcf1e !important;
+    font-family: 'Pokemon Solid', sans-serif !important;
+    height: 70px;
+    line-height: 2.8em;
+    font-size: 1.1em !important;
+    /* line-height: normal !important; */
+}
+.dropdown {
+    height: 100px;
+    width: 300px;
 }
