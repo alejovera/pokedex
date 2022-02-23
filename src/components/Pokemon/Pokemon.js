@@ -17,21 +17,15 @@ function Pokemon({ item, url }) {
                 const datita = pokeData.types.map((item) => {
                     return item;
                 });
-                // console.log(datita);
                 const mappedType = datita.map((item) => {
                     return item.type.name;
                 });
-                // console.log(mappedType);
                 setPokeState({
                     name: pokeData.forms[0].name,
                     image: pokeData.sprites.front_default,
                     number: pokeData.id,
                     type: mappedType,
                 });
-                // if (pokeState.type) {
-                //     const pokeStructure = pokeState.type;
-                //     console.log(pokeStructure);
-                // }
             } else {
                 console.log('hola');
             }

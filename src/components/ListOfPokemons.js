@@ -71,7 +71,6 @@ function ListOfPokemons() {
             console.log(err.message);
         }
     };
-    // console.log(results);
 
     return (
         <div className="container">
@@ -93,7 +92,6 @@ function ListOfPokemons() {
                             onChange={handleChange}
                         >
                             {options.map((item, index) => {
-                                // console.log(options[index]);
                                 return (
                                     <MenuItem
                                         key={index}
