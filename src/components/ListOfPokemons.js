@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { getPokeData, getTypePokemons } from '../actions/pokemons';
+import { useSelector } from 'react-redux';
 import {
     Box,
     InputLabel,
@@ -12,6 +15,9 @@ import { getAllPokes, getTypePokes } from '../api/index';
 import Pokemon from './Pokemon/Pokemon';
 
 function ListOfPokemons() {
+    const dispatch = useDispatch();
+    const pokemons = useSelector((state) => state.pokemons);
+
     const [results, setResults] = useState();
     const [loading, setLoading] = useState(true);
     const [chosenType, setChosenType] = useState();
@@ -20,6 +26,12 @@ function ListOfPokemons() {
 
     useEffect(() => {
         fetchPokes();
+        dropdownActive
+            ? dispatch(getTypePokemons(chosenIndex + 1))
+            : dispatch(getPokeData());
+        // if (pokemons.length > 2) {
+        //     fetchPokes();
+        // }
     }, [chosenType]);
 
     const options = [
@@ -48,24 +60,42 @@ function ListOfPokemons() {
         setChosenIndex(options.indexOf(evt.target.value));
         setDropdownActive(true);
     };
-    console.log(chosenIndex);
+
+    // if (typeof pokemons !== undefined && dropdownActive) {
+    //     async function fetchingPractical() {
+    //         const data = await getTypePokes(chosenIndex + 1);
+    //         setLoading(false);
+    //         const mappedPokemon = data.pokemon.map((item) => {
+    //             return item.pokemon;
+    //         });
+    //         console.log(mappedPokemon);
+    //         setResults(mappedPokemon);
+    //     }
+    //     fetchingPractical();
+    // } else if (pokemons.length > 2 && !dropdownActive) {
+    //     console.log('Pokemon No undefined y dropdown NO activo');
+    //     console.log(pokemons);
+    //     setResults(pokemons);
+    //     setLoading(false);
+    //     return pokemons;
+    // }
+
+    //If we call this fn on the use Effect and depending in condition we dispatch the action, we could read the data below that?
 
     const fetchPokes = async () => {
         try {
-            console.log(dropdownActive);
             if (dropdownActive) {
-                const data = await getTypePokes(chosenIndex + 1);
+                const { pokemon } = await getTypePokes(chosenIndex + 1);
                 setLoading(false);
-                const mappedPokemon = data.pokemon.map((item) => {
+                const mappedPokemon = pokemon.map((item) => {
                     return item.pokemon;
                 });
-                console.log(mappedPokemon);
                 setResults(mappedPokemon);
             } else {
                 const data = await getAllPokes();
                 setResults(data.results);
                 setLoading(false);
-                return data;
+                return results;
             }
         } catch (err) {
             console.log(err.message);

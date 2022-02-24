@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+
 import './Pokemon.css';
 import { getPokeData } from '../../api/index';
 
@@ -35,24 +37,26 @@ function Pokemon({ item, url }) {
     return (
         <>
             {pokeState.type ? (
-                <div className="pokemon__container">
-                    <div className="image__container">
-                        <img
-                            className="pokemon__image"
-                            src={pokeState.image}
-                            alt="imagen pokemon"
-                        />
+                <Link to={`/${pokeState.name}`}>
+                    <div className="pokemon__container">
+                        <div className="image__container">
+                            <img
+                                className="pokemon__image"
+                                src={pokeState.image}
+                                alt="imagen pokemon"
+                            />
+                        </div>
+                        <h3>{pokeState.name}</h3>
+                        <p className="pokemon__number"># {pokeState.number}</p>
+                        <div className="pokemon__type-container">
+                            {pokeState.type.map((item) => (
+                                <button key={item} className="pokemon__type">
+                                    {item}
+                                </button>
+                            ))}
+                        </div>
                     </div>
-                    <h3>{pokeState.name}</h3>
-                    <p className="pokemon__number"># {pokeState.number}</p>
-                    <div className="pokemon__type-container">
-                        {pokeState.type.map((item) => (
-                            <button key={item} className="pokemon__type">
-                                {item}
-                            </button>
-                        ))}
-                    </div>
-                </div>
+                </Link>
             ) : (
                 <p>loading...</p>
             )}
