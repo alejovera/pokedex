@@ -32,7 +32,7 @@ function Graph({ pokeStats }) {
         labels,
         datasets: [
             {
-                label: 'Habilidades especiales',
+                label: 'Estadisticas',
                 data: pokeStats.map((item) => item),
                 backgroundColor: 'rgba(235, 207, 30, 1)',
             },

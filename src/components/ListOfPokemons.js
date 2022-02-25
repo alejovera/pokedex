@@ -92,7 +92,7 @@ function ListOfPokemons() {
                             id="demo-simple-select-helper-label"
                             label="Label"
                         >
-                            Tipos de Pokemon
+                            Tipos
                         </InputLabel>
                         <Select
                             labelId="demo-simple-select-helper-label"

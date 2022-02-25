@@ -33,13 +33,13 @@
     height: 100%;
 }
 .pokemon__container h3 {
-    font-family: 'Pokemon Solid', sans-serif;
-    letter-spacing: 0.2em;
-    font-size: 28px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 24px;
+    padding: 0.5em 0;
     color: #cc0000;
 }
 .pokemon__number {
-    font-family: 'Pokemon Solid', sans-serif;
+    font-family: 'Press Start 2P', cursive;
     font-weight: normal;
     font-size: 16px;
     color: #cc0000;
@@ -51,19 +51,20 @@
     padding: 0 0.5em;
 }
 .pokemon__type-title {
-    font-family: 'Pokemon Solid', sans-serif;
+    font-family: 'Press Start 2P', cursive;
     font-size: 16px;
     color: #3b4cca;
 }
 .pokemon__type {
-    font-family: 'Pokemon Solid', sans-serif;
-    font-size: 16px;
+    font-family: 'Press Start 2P', cursive;
+    margin: 1em 0;
+    font-size: 14px;
     color: #3b4cca;
     /* word-break: 1em; */
     border: solid 3px #3b4cca;
     background-color: #ebcf1e;
     border-radius: 1em;
-    width: 75px;
+    width: 100px;
     height: 40px;
     display: flex;
     justify-content: center;

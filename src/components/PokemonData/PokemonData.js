@@ -44,10 +44,10 @@ function PokemonData() {
                     </h2>
                     <div className="pokemon-single__char">
                         <p className="pokemon-single__p">
-                            Altura: {specificPokemon.height * 0.1}
+                            Altura: {specificPokemon.height * 0.1} feet
                         </p>
                         <p className="pokemon-single__p">
-                            Peso: {specificPokemon.weight / 10}
+                            Peso: {specificPokemon.weight / 10} kg
                         </p>
                     </div>
                     <div className="container__type">
