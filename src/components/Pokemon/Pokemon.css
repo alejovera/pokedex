@@ -1,3 +1,7 @@
+.link {
+    text-decoration: none;
+    color: none;
+}
 .pokemon__container {
     width: 250px;
     height: 450px;

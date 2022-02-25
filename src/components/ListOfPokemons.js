@@ -29,9 +29,6 @@ function ListOfPokemons() {
         dropdownActive
             ? dispatch(getTypePokemons(chosenIndex + 1))
             : dispatch(getPokeData());
-        // if (pokemons.length > 2) {
-        //     fetchPokes();
-        // }
     }, [chosenType]);
 
     const options = [
@@ -60,25 +57,6 @@ function ListOfPokemons() {
         setChosenIndex(options.indexOf(evt.target.value));
         setDropdownActive(true);
     };
-
-    // if (typeof pokemons !== undefined && dropdownActive) {
-    //     async function fetchingPractical() {
-    //         const data = await getTypePokes(chosenIndex + 1);
-    //         setLoading(false);
-    //         const mappedPokemon = data.pokemon.map((item) => {
-    //             return item.pokemon;
-    //         });
-    //         console.log(mappedPokemon);
-    //         setResults(mappedPokemon);
-    //     }
-    //     fetchingPractical();
-    // } else if (pokemons.length > 2 && !dropdownActive) {
-    //     console.log('Pokemon No undefined y dropdown NO activo');
-    //     console.log(pokemons);
-    //     setResults(pokemons);
-    //     setLoading(false);
-    //     return pokemons;
-    // }
 
     //If we call this fn on the use Effect and depending in condition we dispatch the action, we could read the data below that?
 

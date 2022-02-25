@@ -37,7 +37,7 @@ function Pokemon({ item, url }) {
     return (
         <>
             {pokeState.type ? (
-                <Link to={`/${pokeState.name}`}>
+                <Link className="link" to={`/${pokeState.name}`}>
                     <div className="pokemon__container">
                         <div className="image__container">
                             <img
