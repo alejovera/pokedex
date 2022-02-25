@@ -25,22 +25,9 @@ function PokemonData() {
 
         const ability = rta.abilities.map((item) => item.ability.name);
         setPokemonAbilities(ability);
-        console.log(ability);
 
         const stats = rta.stats.map((item) => item.base_stat);
-        console.log(stats);
         setStatsPokemon(stats);
-
-        // const data = {
-        //     labels,
-        //     datasets: [
-        //         {
-        //             label: 'Habilidades especiales',
-        //             data: statsPokemon.map((item) => item),
-        //             backgroundColor: 'rgba(53, 162, 235, 0.5)',
-        //         },
-        //     ],
-        // };
 
         setLoading(false);
     }

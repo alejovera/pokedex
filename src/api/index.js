@@ -33,9 +33,7 @@ export const getPokeDataSingular = async (name) => {
     try {
         let url = `https://pokeapi.co/api/v2/pokemon/${name}`;
         const res = await fetch(url);
-        console.log(res);
         const data = await res.json();
-        console.log(data);
         return data;
     } catch (err) {
         console.log(err.message);

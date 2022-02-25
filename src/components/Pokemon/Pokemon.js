@@ -29,7 +29,7 @@ function Pokemon({ item, url }) {
                     type: mappedType,
                 });
             } else {
-                console.log('hola');
+                console.error('url undefined');
             }
         })();
     }, []);

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { getPokeData, getTypePokemons } from '../actions/pokemons';
-import { useSelector } from 'react-redux';
+// import { useDispatch } from 'react-redux';
+// import { getPokeData, getTypePokemons } from '../actions/pokemons';
+// import { useSelector } from 'react-redux';
 import {
     Box,
     InputLabel,
@@ -15,8 +15,8 @@ import { getAllPokes, getTypePokes } from '../api/index';
 import Pokemon from './Pokemon/Pokemon';
 
 function ListOfPokemons() {
-    const dispatch = useDispatch();
-    const pokemons = useSelector((state) => state.pokemons);
+    // const dispatch = useDispatch();
+    // const pokemons = useSelector((state) => state.pokemons);
 
     const [results, setResults] = useState();
     const [loading, setLoading] = useState(true);
@@ -26,9 +26,9 @@ function ListOfPokemons() {
 
     useEffect(() => {
         fetchPokes();
-        dropdownActive
-            ? dispatch(getTypePokemons(chosenIndex + 1))
-            : dispatch(getPokeData());
+        // dropdownActive
+        //     ? dispatch(getTypePokemons(chosenIndex + 1))
+        //     : dispatch(getPokeData());
     }, [chosenType]);
 
     const options = [
