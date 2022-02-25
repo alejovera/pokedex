@@ -4,13 +4,18 @@ import { Link } from 'react-router-dom';
 import './Pokemon.css';
 import { getPokeData } from '../../api/index';
 
-function Pokemon({ item, url }) {
+function Pokemon({ item, url, dataManager }) {
     const [pokeState, setPokeState] = useState({
         name: '',
         image: '',
         number: '',
         type: '',
     });
+
+    const handleClick = (evt, item) => {
+        evt.preventDefault();
+        dataManager(item);
+    };
 
     useEffect(() => {
         (async function pokeData() {
@@ -50,7 +55,11 @@ function Pokemon({ item, url }) {
                         <p className="pokemon__number"># {pokeState.number}</p>
                         <div className="pokemon__type-container">
                             {pokeState.type.map((item) => (
-                                <button key={item} className="pokemon__type">
+                                <button
+                                    onClick={(evt) => handleClick(evt, item)}
+                                    key={item}
+                                    className="pokemon__type"
+                                >
                                     {item}
                                 </button>
                             ))}

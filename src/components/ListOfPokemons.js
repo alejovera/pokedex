@@ -1,7 +1,4 @@
 import React, { useEffect, useState } from 'react';
-// import { useDispatch } from 'react-redux';
-// import { getPokeData, getTypePokemons } from '../actions/pokemons';
-// import { useSelector } from 'react-redux';
 import {
     Box,
     InputLabel,
@@ -15,21 +12,25 @@ import { getAllPokes, getTypePokes } from '../api/index';
 import Pokemon from './Pokemon/Pokemon';
 
 function ListOfPokemons() {
-    // const dispatch = useDispatch();
-    // const pokemons = useSelector((state) => state.pokemons);
-
     const [results, setResults] = useState();
     const [loading, setLoading] = useState(true);
     const [chosenType, setChosenType] = useState();
     const [chosenIndex, setChosenIndex] = useState();
+    const [filteredSearch, setFilteredSearch] = useState(false);
     const [dropdownActive, setDropdownActive] = useState(false);
 
     useEffect(() => {
         fetchPokes();
-        // dropdownActive
-        //     ? dispatch(getTypePokemons(chosenIndex + 1))
-        //     : dispatch(getPokeData());
+        selectType();
     }, [chosenType]);
+
+    const selectType = (data) => {
+        if (typeof data !== undefined) {
+            setDropdownActive(true);
+            setChosenType(data);
+            setChosenIndex(options.indexOf(data));
+        }
+    };
 
     const options = [
         'normal',
@@ -69,6 +70,7 @@ function ListOfPokemons() {
                     return item.pokemon;
                 });
                 setResults(mappedPokemon);
+                setFilteredSearch(true);
             } else {
                 const data = await getAllPokes();
                 setResults(data.results);
@@ -113,12 +115,22 @@ function ListOfPokemons() {
                     </FormControl>
                 </Box>
             </div>
+            {filteredSearch ? (
+                <h3 className="pokemon__title">Busqueda filtrada:</h3>
+            ) : (
+                <h3 className="pokemon__title">Lista aleatoria</h3>
+            )}
 
             {loading ? (
                 <p>Cargando...</p>
             ) : (
                 results.map(({ name, url }) => (
-                    <Pokemon key={name} item={name} url={url} />
+                    <Pokemon
+                        key={name}
+                        item={name}
+                        url={url}
+                        dataManager={selectType}
+                    />
                 ))
             )}
         </div>

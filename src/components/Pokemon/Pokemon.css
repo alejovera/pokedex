@@ -71,3 +71,9 @@
     align-items: center;
     overflow: hidden;
 }
+.pokemon__type:hover {
+    background-color: #3b4cca;
+    border: 3px solid #ebcf1e;
+    color: #ebcf1e;
+    cursor: pointer;
+}

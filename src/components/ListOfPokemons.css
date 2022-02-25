@@ -5,6 +5,15 @@
     width: 100%;
     height: 100vh;
 }
+.pokemon__title {
+    font-size: 32px;
+    width: 100%;
+    color: #ebcf1e;
+    letter-spacing: 0.1em;
+    font-family: 'Pokemon Solid', sans-serif;
+    display: flex;
+    justify-content: center;
+}
 .dropdown__container {
     width: 100%;
     display: flex;
